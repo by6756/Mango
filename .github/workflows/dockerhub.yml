@@ -11,10 +11,10 @@ jobs:
       id: get_version
       run: echo "release-version=$(echo ${GITHUB_REF:10})" >> $GITHUB_OUTPUT
     - name: Publish to Dockerhub
-      uses: elgohr/Publish-Docker-Github-Action@v4
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: by6756/mango
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: "latest,${{ steps.get_version.outputs.release-version }}"
+        tags: "latest,0.31.0}"
         platforms: linux/amd64,linux/arm64
