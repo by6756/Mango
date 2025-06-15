@@ -1,11 +1,9 @@
 name: Build
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    types: ['opened', 'reopened', 'synchronize', 'ready_for_review']
-
+  repository_dispatch:
+  workflow_dispatch:
+  
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
